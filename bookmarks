@@ -1,0 +1,35 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("init.el"
+ (filename . "~/.emacs.d/init.el")
+ (front-context-string . ";;; Init -- Chri")
+ (rear-context-string)
+ (position . 1))
+(".zshrc"
+ (filename . "~/.zshrc")
+ (front-context-string . "\n\nexport WORKON_")
+ (rear-context-string . "QWHU7we0VtRfTDBc")
+ (position . 4030))
+("docs"
+ (filename . "~/Dropbox/docs/")
+ (front-context-string . "20150424-svgmedi")
+ (rear-context-string . " 0 Apr 24 09:59 ")
+ (position . 237))
+("epantry-js"
+ (filename . "~/Documents/code/epantry/themes/eP/static/js/source/app/")
+ (front-context-string . "app-modules\n  -r")
+ (rear-context-string . "82 Jul 31 17:16 ")
+ (position . 334))
+("code"
+ (filename . "~/Documents/code/")
+ (front-context-string . "  /Users/cclark/")
+ (rear-context-string)
+ (position . 1))
+("emacs"
+ (filename . "~/Dropbox (Personal)/emacs/")
+ (front-context-string . "docs\n  drwxr-xr-")
+ (rear-context-string . "90 Jul 31 08:36 ")
+ (position . 427))
+)
