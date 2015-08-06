@@ -51,20 +51,11 @@
 ;; for selecting buffer and file names
 (ido-ubiquitous-mode 1)
 
-;; Shows a list of buffers
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-
-;; Enhances M-x to allow easier execution of commands. Provides
-;; a filterable list of possible commands in the minibuffer
-;; http://www.emacswiki.org/emacs/Smex
-(setq smex-save-file (concat user-emacs-directory ".smex-items"))
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-
-;; projectile everywhere!
+;; projectile & helm
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
+(setq helm-M-x-fuzzy-match t)
 
 ;; Windmove for switching between windows
 (when (fboundp 'windmove-default-keybindings)

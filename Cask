@@ -2,6 +2,7 @@
 (source melpa)
 
 (depends-on "bind-key")
+(depends-on "browse-kill-ring")
 (depends-on "cask")
 (depends-on "cider")
 (depends-on "clojure-mode")
