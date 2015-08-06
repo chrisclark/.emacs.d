@@ -20,3 +20,23 @@
     (progn
         (scroll-bar-mode -1)
         (tool-bar-mode -1)))
+
+
+(line-number-mode t)
+(column-number-mode t)
+(size-indication-mode t)
+
+;; Theme
+(when (>= emacs-major-version 24)
+
+  (load-theme 'solarized-dark)
+  
+  ; Company-mode color customizations
+  (require 'color)  
+  (let ((bg (face-attribute 'default :background)))
+    (custom-set-faces
+     `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
+     `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
+     `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
+     `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
+     `(company-tooltip-common ((t (:inherit font-lock-constant-face)))))))

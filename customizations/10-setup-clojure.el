@@ -3,6 +3,7 @@
 ;;;;
 
 ;; Enable paredit for Clojure
+(require 'rainbow-delimiters)
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
 
 ;; Rainbows!
