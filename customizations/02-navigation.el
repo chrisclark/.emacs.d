@@ -55,7 +55,9 @@
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
-(setq helm-M-x-fuzzy-match t)
+(setq helm-M-x-fuzzy-match t
+      helm-buffers-fuzzy-matching t
+      helm-recentf-fuzzy-match    t)
 
 ;; Windmove for switching between windows
 (when (fboundp 'windmove-default-keybindings)
@@ -66,10 +68,3 @@
 (add-hook 'org-shiftleft-final-hook 'windmove-left)
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
-
-;; Browse-kill-ring
-(when (require 'browse-kill-ring nil 'noerror)
-  (browse-kill-ring-default-keybindings)
-  (setq browse-kill-ring-highlight-inserted-item "solid")
-  (setq browse-kill-ring-highlight-current-entry t)
-  (setq browse-kill-ring-show-preview t))

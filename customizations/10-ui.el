@@ -26,6 +26,11 @@
 (column-number-mode t)
 (size-indication-mode t)
 
+;; Helm select/underling color
+(set-face-attribute 'helm-selection nil 
+                    :background "yellow"
+                    :foreground "black")
+
 ;; Theme
 (when (>= emacs-major-version 24)
 

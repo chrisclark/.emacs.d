@@ -21,6 +21,16 @@
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
+(require 'edit-server)
+(setq edit-server-new-frame nil)
+(edit-server-start)
+
+(require 'deft)
+(setq deft-directory "~/Dropbox/docs")
+
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 ;; Paths
 (add-to-list 'exec-path' "/usr/local/bin/lein")
 (add-to-list 'exec-path' "/usr/local/bin")
@@ -36,9 +46,9 @@
       (package-install package))))
 
 ;; Auto-save and backup configuration
-(setq backup-directory-alist `((".*" . "~/.emacs-saves")))
+(setq backup-directory-alist `((".*"                                                  . "~/.emacs-saves")))
 (setq auto-save-file-name-transforms `((".*" ,"~/.emacs-saves" t)))
-(setq make-backup-files t               ; backup of a file the first time it is saved.
+(setq make-backup-files t               ; backup of a file the first time it is saved . 
       backup-by-copying t               ; don't clobber symlinks
       version-control t                 ; version numbers for backup files
       delete-old-versions t             ; delete excess backup files silently

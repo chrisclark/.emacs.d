@@ -10,3 +10,6 @@
 
 ;; Go straight to scratch buffer on startup
 (setq inhibit-startup-message t)
+
+(add-hook 'tagedit-mode-hook (tagedit-add-experimental-features))
+
