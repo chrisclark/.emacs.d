@@ -3,4 +3,5 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 (setq org-startup-indented t)
-
+(setq org-src-fontify-natively t)
+(setq org-hide-emphasis-markers t)
