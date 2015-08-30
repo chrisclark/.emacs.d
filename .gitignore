@@ -20,3 +20,4 @@
 projectile.cache
 cider-history
 /customizations/.DS_STORE
+flycheck_*
