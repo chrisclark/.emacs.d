@@ -8,6 +8,9 @@
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 (global-set-key (kbd "C->") 'end-of-buffer)
 (global-set-key (kbd "C-<") 'beginning-of-buffer)
+(global-set-key (kbd "C-.") 'other-window)
+(global-set-key (kbd "C-x C-,") 'previous-buffer)
+(global-set-key (kbd "C-x C-.") 'next-buffer)
 
 ;; Killing
 (global-set-key (kbd "C-w") 'backward-kill-word)

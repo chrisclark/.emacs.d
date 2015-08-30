@@ -26,22 +26,14 @@
 (column-number-mode t)
 (size-indication-mode t)
 
-;; Helm select/underling color
-(set-face-attribute 'helm-selection nil 
-                    :background "yellow"
-                    :foreground "black")
-
-;; Theme
 (when (>= emacs-major-version 24)
+  ;;(load-theme 'solarized-dark)
+  (load-theme 'leuven t))
 
-  (load-theme 'solarized-dark)
-  
-  ; Company-mode color customizations
-  (require 'color)  
-  (let ((bg (face-attribute 'default :background)))
-    (custom-set-faces
-     `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
-     `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
-     `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
-     `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
-     `(company-tooltip-common ((t (:inherit font-lock-constant-face)))))))
+(custom-set-faces
+ '(company-scrollbar-bg ((t (:background "#005369"))))
+ '(company-scrollbar-fg ((t (:background "#003f4f"))))
+ '(company-tooltip ((t (:inherit default :background "#003340"))))
+ '(company-tooltip-common ((t (:inherit font-lock-constant-face))))
+ '(company-tooltip-selection ((t (:inherit font-lock-function-name-face)))))
+

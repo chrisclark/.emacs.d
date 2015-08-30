@@ -13,3 +13,17 @@
 
 (add-hook 'tagedit-mode-hook (tagedit-add-experimental-features))
 
+(defun combine-line ()
+  "Joins the line to the line above."
+  (interactive)
+  (move-beginning-of-line 1)
+  (delete-horizontal-space)
+  (backward-delete-char 1)
+  (insert " "))
+
+(setq tidy-temp-directory "/tmp")
+(autoload 'tidy-buffer "tidy" "Run Tidy HTML parser on current buffer" t)
+(autoload 'tidy-parse-config-file "tidy" "Parse the `tidy-config-file'" t)
+(autoload 'tidy-save-settings "tidy" "Save settings to `tidy-config-file'" t)
+(autoload 'tidy-build-menu  "tidy" "Install an options menu for HTML Tidy." t)
+
