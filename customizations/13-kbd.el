@@ -29,5 +29,8 @@
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-c g") 'helm-git-grep)
+(global-set-key (kbd "C-c C-.") 'helm-git-grep-at-point)
+(global-set-key (kbd "C-x C-d") 'helm-browse-project)
 
 (define-key global-map [f5] 'toggle-truncate-lines)
