@@ -36,6 +36,12 @@
                                                "backups"))))
 (setq auto-save-default nil)
 
+(defun back-sexp-mark-sexp ()
+  "Move to the beginning of the word and call mark-sexp"
+  (interactive)
+  (backward-sexp)
+  (mark-sexp))
+
 
 ;; comments
 (defun toggle-comment-on-line ()
@@ -64,3 +70,8 @@
 ;; expand-region
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+;; Globally turn on delete selection mode
+(delete-selection-mode)
+
+;; 04-editing.el ends here

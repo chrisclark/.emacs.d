@@ -27,6 +27,8 @@
 (autoload 'tidy-save-settings "tidy" "Save settings to `tidy-config-file'" t)
 (autoload 'tidy-build-menu  "tidy" "Install an options menu for HTML Tidy." t)
 
+(global-git-gutter-mode +1)
+
 ;; Following tweaks stolen from https://sites.google.com/site/steveyegge2/my-dot-emacs-file
 
 ;; Fix foolish calendar-mode scrolling.

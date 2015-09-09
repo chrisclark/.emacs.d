@@ -18,6 +18,7 @@
 (depends-on "flx-ido")
 (depends-on "flycheck")
 (depends-on "flycheck-cask")
+(depends-on "git-gutter")
 (depends-on "helm-git-grep")
 (depends-on "helm-ls-git")
 (depends-on "helm-projectile")
