@@ -1,3 +1,6 @@
+;; Bookmarks under source control
+(setq bookmark-version-control t)
+
 ;; Changes all yes/no questions to y/n type
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -66,3 +69,15 @@
  (if (not filename)
 	(message "Buffer '%s' is not visiting a file!" name)
  (progn 	(copy-file filename newname 1) 	(delete-file filename) 	(set-visited-file-name newname) 	(set-buffer-modified-p nil) 	t))))
+
+
+; Slightly modified from http://stackoverflow.com/questions/17922208/emacs-convert-items-on-separate-lines-to-a-comma-separated-list
+(defun arrayify (start end &optional arg)
+  "Turns a series of strings on newlines into single quoted, comma separated one-liner." (interactive "r\nP")
+  (let ((insertion
+         (mapconcat 
+          (lambda (x) (format "'%s'" x))
+          (split-string (buffer-substring start end)) ", ")))
+    (delete-region start end)
+    (insert insertion)
+    (when arg (forward-char (length insertion)))))

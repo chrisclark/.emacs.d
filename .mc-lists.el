@@ -7,10 +7,12 @@
         autopair-skip-close-maybe
         org-beginning-of-line
         org-self-insert-command
+        previous-buffer
         ))
 
 (setq mc/cmds-to-run-once
       '(
         helm-M-x
+        next-buffer
         paredit-semicolon
         ))

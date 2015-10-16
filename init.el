@@ -28,6 +28,13 @@
 (add-to-list 'exec-path' "/usr/local/bin/lein")
 (add-to-list 'exec-path' "/usr/local/bin")
 
+(add-to-list 'load-path' "~/.emacs.d/exts")
+
+(autoload 'tads3-mode "tads3-mode" "TADS 2 editing mode." t)
+  (setq auto-mode-alist
+        (append (list (cons "\\.t$" 'tads2-mode))
+                auto-mode-alist))
+
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
