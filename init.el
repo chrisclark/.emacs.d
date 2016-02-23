@@ -65,3 +65,4 @@
 (mapc 'load (directory-files "~/.emacs.d/customizations" t "^[0-9]+.*\.el$"))
 
 ;;; init.el ends here
+(put 'downcase-region 'disabled nil)

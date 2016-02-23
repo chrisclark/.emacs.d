@@ -20,6 +20,7 @@
 (global-set-key (kbd "C-x C-l") 'mc/edit-lines)
 (global-set-key (kbd "C-x C-j") 'combine-line)
 (global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
 
 ;; Remaps -- mostly to helm
 (global-set-key (kbd "C-x r l") 'helm-bookmarks)
@@ -32,5 +33,9 @@
 (global-set-key (kbd "C-c g") 'helm-git-grep)
 (global-set-key (kbd "C-c C-.") 'helm-git-grep-at-point)
 (global-set-key (kbd "C-x C-d") 'helm-browse-project)
+(global-set-key (kbd "C-x C-h") 'mark-whole-buffer)
 
+
+;; Misc
 (define-key global-map [f5] 'toggle-truncate-lines)
+(global-set-key (kbd "C-c d") 'insert-date)

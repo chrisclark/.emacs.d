@@ -5,7 +5,10 @@
       '(
         autopair-insert-opening
         autopair-skip-close-maybe
+        kill-region
         org-beginning-of-line
+        org-metaleft
+        org-metaright
         org-self-insert-command
         previous-buffer
         ))
@@ -14,5 +17,6 @@
       '(
         helm-M-x
         next-buffer
+        org-delete-char
         paredit-semicolon
         ))
