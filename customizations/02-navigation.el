@@ -46,6 +46,9 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
+(require 'helm-descbinds)
+(helm-descbinds-mode)
+
 (helm-mode 1)
 
 (add-hook 'ibuffer-hook
