@@ -12,15 +12,10 @@
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
 
-;; Highlights matching parenthesis
-(show-paren-mode 1)
-
-;; Highlight current line
-(global-hl-line-mode 1)
-(set-face-background hl-line-face "gray13")
-
-;; Don't use hard tabs
+;; Indentation
 (setq-default indent-tabs-mode nil)
+(setq dtrt-indent-mode 1)  ;; Adjust dtrt-indent-min-quality if needed
+(electric-indent-mode +1)  ;; This seems to be working well...
 
 ;; When you visit a file, point goes to the last place where it
 ;; was when you previously visited the same file.
@@ -37,26 +32,11 @@
                                                "backups"))))
 (setq auto-save-default nil)
 
-(defun back-sexp-mark-sexp ()
-  "Move to the beginning of the word and call mark-sexp"
-  (interactive)
-  (backward-sexp)
-  (mark-sexp))
-
 ;; comments
 (defun toggle-comment-on-line ()
   "comment or uncomment current line"
   (interactive)
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
-(global-set-key (kbd "C-;") 'toggle-comment-on-line)
-
-;; use 2 spaces for tabs
-(defun die-tabs ()
-  (interactive)
-  (set-variable 'tab-width 2)
-  (mark-whole-buffer)
-  (untabify (region-beginning) (region-end))
-  (keyboard-quit))
 
 ;; fix weird os x kill error
 (defun ns-get-pasteboard ()
@@ -65,13 +45,11 @@
       (ns-get-selection-internal 'CLIPBOARD)
     (quit nil)))
 
-(setq electric-indent-mode nil)
 
 ;; expand-region
 (require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; Globally turn on delete selection mode
-(delete-selection-mode)
+(delete-selection-mode 1)
 
 ;; 04-editing.el ends here

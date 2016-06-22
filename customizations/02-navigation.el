@@ -19,55 +19,34 @@
 (recentf-mode 1)
 (setq recentf-max-menu-items 40)
 
-;; ido-mode allows you to more easily navigate choices. For example,
-;; when you want to switch buffers, ido presents you with a list
-;; of buffers in the the mini-buffer. As you start to type a buffer's
-;; name, ido will narrow down the list of buffers to match the text
-;; you've typed in
-;; http://www.emacswiki.org/emacs/InteractivelyDoThings
-(require 'flx-ido)
-(ido-mode t)
-(ido-everywhere 1)
-(flx-ido-mode 1)
+;; helm
 
-;; This allows partial matches, e.g. "tl" will match "Tyrion Lannister"
-(setq ido-enable-flex-matching t)
+(require 'helm)
+(require 'helm-config)
 
-;; disable ido faces to see flx highlights.
-(setq ido-use-faces nil)
+(when (executable-find "curl")
+  (setq helm-google-suggest-use-curl-p t))
 
-;; Turn this behavior off because it's annoying
-(setq ido-use-filename-at-point nil)
+(setq helm-M-x-fuzzy-match                  t
+      helm-buffers-fuzzy-matching           t
+      helm-recentf-fuzzy-match              t
+      helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+      helm-ff-file-name-history-use-recentf t
+      helm-apropos-fuzzy-match              t)
 
-;; Don't try to match file across all "work" directories; only match files
-;; in the current directory displayed in the minibuffer
-(setq ido-auto-merge-work-directories-length -1)
-
-;; Includes buffer names of recently open files, even if they're not
-;; open now
-(setq ido-use-virtual-buffers t)
-
-;; This enables ido in all contexts where it could be useful, not just
-;; for selecting buffer and file names
-(ido-ubiquitous-mode 1)
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
 ;; projectile & helm
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
-(setq helm-M-x-fuzzy-match t
-      helm-buffers-fuzzy-matching t
-      helm-recentf-fuzzy-match    t)
 
-;; Windmove for switching between windows
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
-
-;; Make windmove work in org-mode:
-(add-hook 'org-shiftup-final-hook 'windmove-up)
-(add-hook 'org-shiftleft-final-hook 'windmove-left)
-(add-hook 'org-shiftdown-final-hook 'windmove-down)
-(add-hook 'org-shiftright-final-hook 'windmove-right)
+(helm-mode 1)
 
 (add-hook 'ibuffer-hook
     (lambda ()

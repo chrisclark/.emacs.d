@@ -21,15 +21,22 @@
         (scroll-bar-mode -1)
         (tool-bar-mode -1)))
 
-
 (line-number-mode t)
 (column-number-mode t)
 (size-indication-mode t)
 
+;; Highlights matching parenthesis
+(show-paren-mode 1)
+
 (when (>= emacs-major-version 24)
   ;;(load-theme 'solarized-dark)
-  ;;(load-theme 'leuven t)
-  (load-theme 'cyberpunk t))
+  ;;(load-theme 'cyberpunk t)
+  (load-theme 'leuven t))
+
+;; Highlight current line
+(global-hl-line-mode 1)
+(set-face-background hl-line-face "gray92")
+
 
 (custom-set-faces
  '(company-scrollbar-bg ((t (:background "#005369"))))

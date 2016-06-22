@@ -9,6 +9,7 @@
 (global-set-key (kbd "C->") 'end-of-buffer)
 (global-set-key (kbd "C-<") 'beginning-of-buffer)
 (global-set-key (kbd "C-.") 'other-window)
+(global-set-key (kbd "C-,") (lambda () (interactive) (other-window -1)))
 (global-set-key (kbd "C-x C-,") 'previous-buffer)
 (global-set-key (kbd "C-x C-.") 'next-buffer)
 
@@ -20,7 +21,11 @@
 (global-set-key (kbd "C-x C-l") 'mc/edit-lines)
 (global-set-key (kbd "C-x C-j") 'combine-line)
 (global-set-key (kbd "C-=") 'er/expand-region)
-;;(global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
+(global-set-key (kbd "C-;") 'toggle-comment-on-line)
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-set-key (kbd "C-c h o") 'helm-occur)
+(global-set-key (kbd "C-c C-c") 'helm-calcul-expression)
+
 
 ;; Remaps -- mostly to helm
 (global-set-key (kbd "C-x r l") 'helm-bookmarks)

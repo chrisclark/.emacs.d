@@ -12,14 +12,11 @@
 (require 'magit)
 (global-set-key "\C-xg" 'magit-status)
 
-
 (require 'auto-complete)
 (require 'autopair)
 (require 'yasnippet)
 (require 'flycheck)
 (global-flycheck-mode t)
-
-(global-set-key [f7] 'find-file-in-repository)
 
 ; auto-complete mode extra settings
 (setq
