@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("new-todos"
+(("blog"
+ (filename . "~/Dropbox/blog/")
+ (front-context-string . ".DS_Store\n  drwx")
+ (rear-context-string . "44 Jun 13 09:53 ")
+ (position . 236))
+("new-todos"
  (filename . "~/Dropbox/docs/new-todos.org")
  (front-context-string)
  (rear-context-string . "entory forecast\n")

@@ -20,7 +20,7 @@
 (global-set-key (kbd "C-x C-l") 'mc/edit-lines)
 (global-set-key (kbd "C-x C-j") 'combine-line)
 (global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
+;;(global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
 
 ;; Remaps -- mostly to helm
 (global-set-key (kbd "C-x r l") 'helm-bookmarks)

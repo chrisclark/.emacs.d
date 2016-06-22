@@ -28,7 +28,8 @@
 
 (when (>= emacs-major-version 24)
   ;;(load-theme 'solarized-dark)
-  (load-theme 'leuven t))
+  ;;(load-theme 'leuven t)
+  (load-theme 'cyberpunk t))
 
 (custom-set-faces
  '(company-scrollbar-bg ((t (:background "#005369"))))

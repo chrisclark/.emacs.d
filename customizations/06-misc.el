@@ -82,6 +82,17 @@
     (insert insertion)
     (when arg (forward-char (length insertion)))))
 
+(defun arrayify-unquoted (start end &optional arg)
+  "Turns a series of strings on newlines into single quoted, comma separated one-liner." (interactive "r\nP")
+  (let ((insertion
+         (mapconcat 
+          (lambda (x) (format "%s" x))
+          (split-string (buffer-substring start end)) ", ")))
+    (delete-region start end)
+    (insert insertion)
+    (when arg (forward-char (length insertion)))))
+
+
 (defun insert-date (prefix)
     "Insert the current date. With prefix-argument, use ISO format. With
    two prefix arguments, write out the day and month name."
@@ -92,3 +103,26 @@
                    ((equal prefix '(16)) "%A, %d. %B %Y")))
           (system-time-locale "de_DE"))
       (insert (format-time-string format))))
+
+(defun my-tag-lines (b e tag)
+  "HTML: Wrap every line in the region with a tag"
+  (interactive "r\nMTag for line: ")
+  (save-restriction
+    (narrow-to-region b e)
+    (save-excursion
+      (goto-char (point-min))
+      (while (< (point) (point-max))
+        (beginning-of-line)
+        (insert (format "<%s>" tag))
+        (end-of-line)
+        (insert (format "</%s>" tag))
+        (forward-line 1)))))
+
+(defun sql-setup-postgres ()
+  "Set up a postgrest connection and sqli mode"
+  (interactive)
+  (sql-postgres)
+  (sql-set-product "postgres")
+  (setq sql-buffer "*SQL*")
+  (run-hooks 'sql-set-sqli-hook)
+  (sql-mode))

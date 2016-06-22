@@ -21,3 +21,4 @@ projectile.cache
 cider-history
 /customizations/.DS_STORE
 flycheck_*
+.edbi-ds-history

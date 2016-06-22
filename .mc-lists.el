@@ -5,17 +5,25 @@
       '(
         autopair-insert-opening
         autopair-skip-close-maybe
+        delete-horizontal-space
+        indent-for-tab-command
         kill-region
+        ns-copy-including-secondary
         org-beginning-of-line
+        org-end-of-line
+        org-kill-line
         org-metaleft
         org-metaright
         org-self-insert-command
+        org-yank
         previous-buffer
         ))
 
 (setq mc/cmds-to-run-once
       '(
         helm-M-x
+        mark-whole-buffer
+        markdown-exdent-or-delete
         next-buffer
         org-delete-char
         paredit-semicolon

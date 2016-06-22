@@ -17,6 +17,7 @@
 
 ;; Highlight current line
 (global-hl-line-mode 1)
+(set-face-background hl-line-face "gray13")
 
 ;; Don't use hard tabs
 (setq-default indent-tabs-mode nil)
@@ -41,7 +42,6 @@
   (interactive)
   (backward-sexp)
   (mark-sexp))
-
 
 ;; comments
 (defun toggle-comment-on-line ()
