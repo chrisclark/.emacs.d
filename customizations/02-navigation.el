@@ -50,6 +50,7 @@
 (define-key helm-map (kbd "C-z")   'helm-select-action)             ; list actions using C-z
 
 (helm-mode 1)
+(helm-flx-mode +1)
 
 ;;; Projectile:
 (projectile-global-mode)

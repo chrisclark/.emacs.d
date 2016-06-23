@@ -12,7 +12,7 @@
 ;; Paths
 (add-to-list 'exec-path' "/usr/local/bin/lein")
 (add-to-list 'exec-path' "/usr/local/bin")
-(add-to-list 'load-path' "~/.emacs.d/exts")
+(add-to-list 'load-path' (concat user-emacs-directory "exts"))
 
 (when (>= emacs-major-version 24)
   (require 'package)

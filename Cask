@@ -31,6 +31,7 @@
 (depends-on "git-gutter")
 (depends-on "helm")
 (depends-on "helm-core")
+(depends-on "helm-flx")
 (depends-on "helm-git-grep")
 (depends-on "helm-ls-git")
 (depends-on "helm-projectile")
