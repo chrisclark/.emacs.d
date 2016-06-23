@@ -55,6 +55,7 @@
 (depends-on "rainbow-mode")
 (depends-on "restclient")
 (depends-on "s")
+(depends-on "session")
 (depends-on "shut-up")
 (depends-on "smartparens")
 (depends-on "smex")

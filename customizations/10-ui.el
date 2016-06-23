@@ -1,3 +1,9 @@
+;;; UI --- Customizations. Mostly eliminating cruft.
+
+;;; Commentary:
+
+;;; Code:
+
 ;; Prevent the cursor from blinking
 (blink-cursor-mode 0)
 
@@ -21,9 +27,11 @@
         (scroll-bar-mode -1)
         (tool-bar-mode -1)))
 
-(line-number-mode t)
-(column-number-mode t)
-(size-indication-mode t)
+;; Modeline
+(line-number-mode t)     ; Line numbers in mode line
+(column-number-mode t)   ; Column numbers in mode line
+(size-indication-mode 1) ; Display file size in k in modeline
+(setq linum-format " %7d ")
 
 ;; Highlights matching parenthesis
 (show-paren-mode 1)
@@ -34,14 +42,9 @@
   (load-theme 'leuven t))
 
 ;; Highlight current line
+(defvar hl-line-face)
 (global-hl-line-mode 1)
 (set-face-background hl-line-face "gray92")
 
-
-(custom-set-faces
- '(company-scrollbar-bg ((t (:background "#005369"))))
- '(company-scrollbar-fg ((t (:background "#003f4f"))))
- '(company-tooltip ((t (:inherit default :background "#003340"))))
- '(company-tooltip-common ((t (:inherit font-lock-constant-face))))
- '(company-tooltip-selection ((t (:inherit font-lock-function-name-face)))))
-
+(provide '10-ui)
+;;; 10-ui.el ends here

@@ -1,15 +1,11 @@
-;; Python stuff
-(setq-default indent-tabs-mode nil)    ; use only spaces and no tabs
-(setq default-tab-width 4)
+;;; Python --- Mode customizations
 
-;; make more packages available with the package installer
-(setq to-install
-      '(python-mode magit yasnippet jedi auto-complete autopair find-file-in-repository flycheck))
+;;; Commentary:
 
-(mapc 'install-if-needed to-install)
-
-(setq magit-last-seen-setup-instructions "1.4.0")
+;;; Code:
 (require 'magit)
+(defvar magit-last-seen-setup-instructions)
+(setq magit-last-seen-setup-instructions "1.4.0")
 (global-set-key "\C-xg" 'magit-status)
 
 (require 'auto-complete)
@@ -19,6 +15,7 @@
 (global-flycheck-mode t)
 
 ; auto-complete mode extra settings
+(defvar ac-override-local-map)
 (setq
  ac-auto-start 2
  ac-override-local-map nil
@@ -27,6 +24,7 @@
 
 ;; ;; Python mode settings
 (require 'python-mode)
+(defvar py-electric-colon-active)
 (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
 (setq py-electric-colon-active t)
 (add-hook 'python-mode-hook 'autopair-mode)
@@ -47,12 +45,15 @@
       '("--virtual-env" "~/.virtualenvs/ep"))
 
 (add-hook 'python-mode-hook
-    (lambda ()
-      (jedi:setup)
-      (jedi:ac-setup)
-      (local-set-key "\C-cd" 'jedi:show-doc)
-      (local-set-key (kbd "M-SPC") 'jedi:complete)
-      (local-set-key (kbd "M-.") 'jedi:goto-definition)))
+          (lambda ()
+            (jedi:setup)
+            (jedi:ac-setup)
+            (local-set-key "\C-cd" 'jedi:show-doc)
+            (local-set-key (kbd "M-SPC") 'jedi:complete)
+            (local-set-key (kbd "M-.") 'jedi:goto-definition)))
 
 (setq jedi:complete-on-dot t)
 (add-hook 'python-mode-hook 'auto-complete-mode)
+
+(provide '09-python)
+;;; 09-python.el ends here

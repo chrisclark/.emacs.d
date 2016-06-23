@@ -1,10 +1,14 @@
-;; These customizations make it easier for you to navigate files,
-;; switch buffers, and choose options from the minibuffer.
+;;; package --- Navigation
 
+;;; Commentary:
+;; Moving around Emacs.  Primarily concerned with Helm
+;; All helm keymappings are done in kbd.el
+
+;;; Code:
 
 ;; "When several buffers visit identically-named files,
-;; Emacs must give the buffers distinct names. The usual method
-;; for making buffer names unique adds ‘<2>’, ‘<3>’, etc. to the end
+;; Emacs must give the buffers distinct names.  The usual method
+;; for making buffer names unique adds ‘<2>’, ‘<3>’, etc to the end
 ;; of the buffer names (all but one of them).
 ;; The forward naming method includes part of the file's directory
 ;; name at the beginning of the buffer name
@@ -12,21 +16,25 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
-;; Turn on recent file mode so that you can more easily switch to
-;; recently edited files when you first start emacs
+;;; Recentf:
+(defvar recentf-save-file)
 (setq recentf-save-file (concat user-emacs-directory ".recentf"))
 (require 'recentf)
 (recentf-mode 1)
 (setq recentf-max-menu-items 40)
 
-;; helm
-
+;;; Helm:
 (require 'helm)
 (require 'helm-config)
+(require 'helm-descbinds)
+(helm-descbinds-mode)
 
-(when (executable-find "curl")
-  (setq helm-google-suggest-use-curl-p t))
-
+(defvar helm-M-x-fuzzy-match)
+(defvar helm-buffers-fuzzy-matching)
+(defvar helm-recentf-fuzzy-match)
+(defvar helm-ff-search-library-in-sexp)
+(defvar helm-ff-file-name-history-use-recentf)
+(defvar helm-apropos-fuzzy-match)
 (setq helm-M-x-fuzzy-match                  t
       helm-buffers-fuzzy-matching           t
       helm-recentf-fuzzy-match              t
@@ -38,21 +46,21 @@
       helm-apropos-fuzzy-match              t)
 
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
-(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
-
-;; projectile & helm
-(projectile-global-mode)
-(setq projectile-completion-system 'helm)
-(helm-projectile-on)
-
-(require 'helm-descbinds)
-(helm-descbinds-mode)
+(define-key helm-map (kbd "C-i")   'helm-execute-persistent-action) ; make TAB works in terminal
+(define-key helm-map (kbd "C-z")   'helm-select-action)             ; list actions using C-z
 
 (helm-mode 1)
 
+;;; Projectile:
+(projectile-global-mode)
+(defvar projectile-completion-system)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
+
+;;; IBuffer:
 (add-hook 'ibuffer-hook
     (lambda ()
-      (ibuffer-projectile-set-filter-groups)
-      (unless (eq ibuffer-sorting-mode 'alphabetic)
-        (ibuffer-do-sort-by-alphabetic))))
+      (ibuffer-projectile-set-filter-groups)))
+
+(provide '02-navigation)
+;;; 02-navigation.el ends here

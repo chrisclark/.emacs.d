@@ -1,5 +1,8 @@
-;; Customizations relating to editing a buffer.
+;;; 04-editing.el --- Customizations related to editing test
 
+;;; Commentary:
+
+;;; Code:
 ;; Key binding to use "hippie expand" for text autocompletion
 ;; http://www.emacswiki.org/emacs/HippieExpand
 (global-set-key (kbd "M-/") 'hippie-expand)
@@ -13,9 +16,11 @@
         try-complete-lisp-symbol))
 
 ;; Indentation
-(setq-default indent-tabs-mode nil)
-(setq dtrt-indent-mode 1)  ;; Adjust dtrt-indent-min-quality if needed
-(electric-indent-mode +1)  ;; This seems to be working well...
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)  ; always use spaces
+(setq dtrt-indent-mode 1)            ; Adjust dtrt-indent-min-quality if needed
+(electric-indent-mode +1)            ; This seems to be working well...
+
 
 ;; When you visit a file, point goes to the last place where it
 ;; was when you previously visited the same file.
@@ -25,22 +30,15 @@
 ;; keep track of saved places in ~/.emacs.d/places
 (setq save-place-file (concat user-emacs-directory "places"))
 
-;; Emacs can automatically create backup files. This tells Emacs to
-;; put all backups in ~/.emacs.d/backups. More info:
-;; http://www.gnu.org/software/emacs/manual/html_node/elisp/Backup-Files.html
-(setq backup-directory-alist `(("." . ,(concat user-emacs-directory
-                                               "backups"))))
-(setq auto-save-default nil)
-
 ;; comments
 (defun toggle-comment-on-line ()
-  "comment or uncomment current line"
+  "Comment or uncomment current line."
   (interactive)
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
 
 ;; fix weird os x kill error
 (defun ns-get-pasteboard ()
-  "Returns the value of the pasteboard, or nil for unsupported formats."
+  "Return the value of the pasteboard, or nil for unsupported formats."
   (condition-case nil
       (ns-get-selection-internal 'CLIPBOARD)
     (quit nil)))
@@ -52,4 +50,5 @@
 ;; Globally turn on delete selection mode
 (delete-selection-mode 1)
 
-;; 04-editing.el ends here
+(provide '04-editing)
+;;; 04-editing.el ends here
