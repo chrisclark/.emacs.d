@@ -39,7 +39,8 @@
 (when (>= emacs-major-version 24)
   ;;(load-theme 'solarized-dark)
   ;;(load-theme 'cyberpunk t)
-  (load-theme 'leuven t))
+  (load-theme 'leuven t)
+  )
 
 ;; Highlight current line
 (defvar hl-line-face)

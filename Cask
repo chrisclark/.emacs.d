@@ -62,6 +62,7 @@
 (depends-on "smartparens")
 (depends-on "smex")
 (depends-on "sqlup-mode")
+(depends-on "sr-speedbar")
 (depends-on "tagedit")
 (depends-on "tidy")
 (depends-on "use-package")

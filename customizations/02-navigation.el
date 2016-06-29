@@ -63,5 +63,17 @@
     (lambda ()
       (ibuffer-projectile-set-filter-groups)))
 
+;; Speedbar/sr-speedbar
+(defvar speedbar-show-unknown-files)
+(setq speedbar-show-unknown-files t)
+
+(require 'sr-speedbar)
+(defvar speedbar-use-images)
+(setq speedbar-use-images nil)
+(sr-speedbar-refresh-turn-on)
+(sr-speedbar-open)
+(with-current-buffer sr-speedbar-buffer-name
+  (setq window-size-fixed 'width))
+
 (provide '02-navigation)
 ;;; 02-navigation.el ends here

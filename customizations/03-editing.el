@@ -36,13 +36,12 @@
   (interactive)
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
 
-;; fix weird os x kill error
+;; fix weird os x kill errorn
 (defun ns-get-pasteboard ()
   "Return the value of the pasteboard, or nil for unsupported formats."
   (condition-case nil
       (ns-get-selection-internal 'CLIPBOARD)
     (quit nil)))
-
 
 ;; expand-region
 (require 'expand-region)
