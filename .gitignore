@@ -22,4 +22,5 @@ cider-history
 /customizations/.DS_STORE
 flycheck_*
 .edbi-ds-history
-*.session
+.session
+*.el#
