@@ -1,4 +1,4 @@
-;;; 04-editing.el --- Customizations related to editing test
+;;; 03-editing.el --- Customizations related to editing test
 
 ;;; Commentary:
 
@@ -49,5 +49,5 @@
 ;; Globally turn on delete selection mode
 (delete-selection-mode 1)
 
-(provide '04-editing)
-;;; 04-editing.el ends here
+(provide '03-editing)
+;;; 03-editing.el ends here

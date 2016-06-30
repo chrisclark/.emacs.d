@@ -47,5 +47,5 @@
 (global-hl-line-mode 1)
 (set-face-background hl-line-face "gray92")
 
-(provide '10-ui)
-;;; 10-ui.el ends here
+(provide '01-ui)
+;;; 01-ui.el ends here

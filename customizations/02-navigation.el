@@ -65,8 +65,10 @@
 
 ;; Speedbar/sr-speedbar
 (defvar speedbar-show-unknown-files)
+(defvar speedbar-directory-unshown-regexp)
 (setq speedbar-show-unknown-files t)
-
+(setq speedbar-directory-unshown-regexp
+      "^\\(CVS\\|RCS\\|SCCS\\|\\.\\.*$\\)\\'")  ;; Show hidden files, eg. dot files
 (require 'sr-speedbar)
 (defvar speedbar-use-images)
 (setq speedbar-use-images nil)

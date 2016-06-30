@@ -17,17 +17,11 @@
 ;; Save M-x history between sessions
 (add-hook 'after-init-hook 'session-initialize)
 
-;; shell scripts
-(setq-default sh-basic-offset 2)
-(setq-default sh-indentation 2)
-
 ;; No need for ~ files when editing
 (setq create-lockfiles nil)
 
 ;; Go straight to scratch buffer on startup
 (setq inhibit-startup-message t)
-
-(add-hook 'tagedit-mode-hook (tagedit-add-experimental-features))
 
 (global-git-gutter-mode +1)
 
@@ -89,15 +83,15 @@
         (insert (format "</%s>" tag))
         (forward-line 1)))))
 
-(defvar sql-buffer)
-(defun sql-setup-postgres ()
-  "Set up a postgres connection and sqli mode."
-  (interactive)
-  (sql-postgres)
-  (sql-set-product "postgres")
-  (setq sql-buffer "*SQL*")
-  (run-hooks 'sql-set-sqli-hook)
-  (sql-mode))
+;; (defvar sql-buffer)
+;; (defun sql-setup-postgres ()
+;;   "Set up a postgres connection and sqli mode."
+;;   (interactive)
+;;   (sql-postgres)
+;;   (sql-set-product "postgres")
+;;   (setq sql-buffer "*SQL*")
+;;   (run-hooks 'sql-set-sqli-hook)
+;;   (sql-mode))
 
 ;; Fix foolish calendar-mode scrolling.
 ;; From https://sites.google.com/site/steveyegge2/my-dot-emacs-file
@@ -107,5 +101,5 @@
  (define-key calendar-mode-map ">" 'scroll-calendar-left)
  (define-key calendar-mode-map "<" 'scroll-calendar-right)))
 
-(provide '06-misc)
-;;; 06-misc.el ends here
+(provide '05-misc-functinos)
+;;; 05-misc-functions.el ends here
