@@ -10,19 +10,13 @@
 (edit-server-start)
 
 ;; Paths
-(add-to-list 'exec-path' "/usr/local/bin/lein")
-(add-to-list 'exec-path' "/usr/local/bin")
-(add-to-list 'load-path' (concat user-emacs-directory "exts"))
-
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
   (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t))
 
-;; Emacs can automatically create backup files. This tells Emacs to
-;; put all backups in ~/.emacs.d/backups. More info:
-;; http://www.gnu.org/software/emacs/manual/html_node/elisp/Backup-Files.html
+;; Put all backups in ~/.emacs.d/backups. More info:
 (setq backup-directory-alist `(("." . ,(concat user-emacs-directory
                                                "backups"))))
 (setq auto-save-default 1)
