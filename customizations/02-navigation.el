@@ -1,20 +1,16 @@
-;;; package --- Navigation
+;;; navigation --- be fast!
 
 ;;; Commentary:
-;; Moving around Emacs.  Primarily concerned with Helm
-;; All helm keymappings are done in kbd.el
+;; Moving around Emacs.  Primarily concerned with Helm.
+;; All global helm keymappings are done in kbd.el
 
 ;;; Code:
 
-;; "When several buffers visit identically-named files,
-;; Emacs must give the buffers distinct names.  The usual method
-;; for making buffer names unique adds ‘<2>’, ‘<3>’, etc to the end
-;; of the buffer names (all but one of them).
 ;; The forward naming method includes part of the file's directory
-;; name at the beginning of the buffer name
-;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Uniquify.html
+;; name at the beginning of the buffer name when sever buffers are visiting
+;; identically-name files (instead of the default '<2>', '<3>', etc.
 (require 'uniquify)
-(setq uniquify-buffer-name-style 'forward)
+(setq uniquify-buffer-name-style 'post-forward)  ;; buffernames that are foo<1>, foo<2> -> foo|dir foo|otherdir
 
 ;;; Recentf:
 (defvar recentf-save-file)

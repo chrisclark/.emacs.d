@@ -1,3 +1,10 @@
+;;; kbd --- all global keyboard remaps
+
+;;; Commentary:
+;; mode-specific rebinds are handled in their respective mode.el files
+
+;;; Code:
+
 ;; global shortcuts
 (set-keyboard-coding-system nil)
 
@@ -44,3 +51,6 @@
 ;; Misc
 (define-key global-map [f5]     'toggle-truncate-lines)
 (global-set-key (kbd "C-c d")   'insert-date)
+
+(provide '09-kbd)
+;;; 09-kbd.el ends here

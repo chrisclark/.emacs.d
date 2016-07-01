@@ -8,8 +8,11 @@
 (blink-cursor-mode 0)
 
 ;; Don't use messages that you don't read
-(setq initial-scratch-message "")
-(setq inhibit-startup-message t)
+(setq initial-scratch-message nil
+      inhibit-startup-message t
+      inhibit-splash-screen 1
+      initial-major-mode 'org-mode)
+
 
 ;; Don't let Emacs hurt your ears
 (setq visible-bell t)
@@ -31,16 +34,19 @@
 (line-number-mode t)     ; Line numbers in mode line
 (column-number-mode t)   ; Column numbers in mode line
 (size-indication-mode 1) ; Display file size in k in modeline
+(defvar linum-format)
 (setq linum-format " %7d ")
+
+; Global Line Number mode
+(linum-mode 1)
 
 ;; Highlights matching parenthesis
 (show-paren-mode 1)
 
 (when (>= emacs-major-version 24)
-  ;;(load-theme 'solarized-dark)
+  ;; Uncomment if we need to look haxory for some reason
   ;;(load-theme 'cyberpunk t)
-  (load-theme 'leuven t)
-  )
+  (load-theme 'leuven t))
 
 ;; Highlight current line
 (defvar hl-line-face)

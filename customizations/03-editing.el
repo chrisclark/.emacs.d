@@ -49,5 +49,10 @@
 ;; Globally turn on delete selection mode
 (delete-selection-mode 1)
 
+;; Indicate where the file ends
+(setq-default indicate-empty-lines t)
+(when (not indicate-empty-lines)
+  (toggle-indicate-empty-lines))
+
 (provide '03-editing)
 ;;; 03-editing.el ends here
