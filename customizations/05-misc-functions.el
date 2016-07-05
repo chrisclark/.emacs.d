@@ -15,7 +15,7 @@
 
 ;; Inexplicably, this command is disabled by default. That's silly.
 (put 'downcase-region 'disabled nil)
-http://54.234.229.186/asd.html
+
 ;; Changes all yes/no questions to y/n type
 (fset 'yes-or-no-p 'y-or-n-p)
 
