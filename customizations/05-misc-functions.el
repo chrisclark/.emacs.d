@@ -4,13 +4,18 @@
 
 ;;; Code:
 
+(setq scpaste-http-destination "http://p.untrod.com"
+      scpaste-scp-destination "ec2-user@54.234.229.186:/var/www/html")
+(setq scpaste-user-name "Chris")
+(setq scpaste-scp-pubkey "~/.ssh/scp-paste.pem")
+
 ;; Bookmarks under source control
 (defvar bookmark-version-control)
 (setq bookmark-version-control t)
 
 ;; Inexplicably, this command is disabled by default. That's silly.
 (put 'downcase-region 'disabled nil)
-
+http://54.234.229.186/asd.html
 ;; Changes all yes/no questions to y/n type
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -34,7 +39,7 @@
   (backward-delete-char 1)
   (insert " "))
 
-; Slightly modified from http://stackoverflow.com/questions/17922208/emacs-convert-items-on-separate-lines-to-a-comma-separated-list
+;; Slightly modified from http://stackoverflow.com/questions/17922208/emacs-convert-items-on-separate-lines-to-a-comma-separated-list
 (defun arrayify (start end &optional arg)
   "Turns a series of strings on newlines into single quoted, comma separated one-liner."
   (interactive "r\nP")
