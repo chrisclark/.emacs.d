@@ -10,7 +10,7 @@
 /url/
 /var/
 *.elc
-/.DS_STORE
+.DS_STORE
 /*smex-items
 /backups
 /.recentf
@@ -25,3 +25,4 @@ flycheck_*
 .session
 \#*#
 projectile-bookmarks.eld
+.DS_STORE

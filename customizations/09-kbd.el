@@ -44,7 +44,8 @@
 (global-set-key (kbd "C-x C-h") 'mark-whole-buffer)
 (global-set-key (kbd "C-c h")   'helm-command-prefix)
 (global-set-key (kbd "C-c h o") 'helm-occur)
-(global-set-key (kbd "C-c C-c") 'helm-calcul-expression)
+(global-set-key (kbd "C-c c") 'helm-calcul-expression)
+
 (global-set-key (kbd "C-h a")   'helm-apropos)
 (global-set-key (kbd "C-x C-r") 'helm-recentf)
 

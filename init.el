@@ -16,9 +16,16 @@
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
   (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t))
 
+;; Load any extensions
+(let ((default-directory (concat user-emacs-directory
+                                 "ext")))
+  (normal-top-level-add-to-load-path '("."))
+  (normal-top-level-add-subdirs-to-load-path))
+
 ;; Put all backups in ~/.emacs.d/backups. More info:
 (setq backup-directory-alist `(("." . ,(concat user-emacs-directory
                                                "backups"))))
+
 (setq auto-save-default 1)
 (setq auto-save-file-name-transforms `((".*" ,(concat user-emacs-directory
                                                       "backups") t)))

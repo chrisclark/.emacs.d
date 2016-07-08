@@ -4,11 +4,6 @@
 
 ;;; Code:
 
-(setq scpaste-http-destination "http://p.untrod.com"
-      scpaste-scp-destination "ec2-user@54.234.229.186:/var/www/html")
-(setq scpaste-user-name "Chris")
-(setq scpaste-scp-pubkey "~/.ssh/scp-paste.pem")
-
 ;; Bookmarks under source control
 (defvar bookmark-version-control)
 (setq bookmark-version-control t)
@@ -105,6 +100,13 @@
  (setq mark-holidays-in-calendar t)
  (define-key calendar-mode-map ">" 'scroll-calendar-left)
  (define-key calendar-mode-map "<" 'scroll-calendar-right)))
+
+;; SCPaste config
+(require 'scpaste)
+(setq scpaste-http-destination "http://p.untrod.com"
+      scpaste-scp-destination "ec2-user@54.234.229.186:/var/www/html")
+(setq scpaste-user-name "Chris")
+(setq scpaste-scp-pubkey "~/.ssh/scp-paste.pem")
 
 (provide '05-misc-functinos)
 ;;; 05-misc-functions.el ends here

@@ -49,11 +49,6 @@
 ;; It's also required to run "pip install --user jedi" and "pip
 ;; install --user epc" to get the Python side of the library work
 ;; correctly.
-;; With the same interpreter you're using.
-
-;; if you need to change your python intepreter, if you want to change it
-;; (setq jedi:server-command
-      ;; '("python2" "~/.emacs.d/elpa/jedi-0.1.2/jediepcserver.py"))
 
 (setq jedi:server-args
       '("--virtual-env" "~/.virtualenvs/ep"))

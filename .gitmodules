@@ -1,0 +1,3 @@
+[submodule "ext/scpaste"]
+	path = ext/scpaste
+	url = git@github.com:chrisclark/scpaste
