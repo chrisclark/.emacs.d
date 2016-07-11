@@ -35,6 +35,17 @@
 (setq org-hide-emphasis-markers t)
 
 
+;; Git
+(require 'magit)
+(defvar magit-last-seen-setup-instructions)
+(setq magit-last-seen-setup-instructions "1.4.0")
+(global-set-key "\C-xg" 'magit-status)
+
+
+;; Python
+(elpy-enable)
+
+
 ;; javascript-mode (javascript / html / ejs)
 (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.ejs\\'" . html-mode))

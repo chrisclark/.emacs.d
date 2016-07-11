@@ -7,6 +7,9 @@
         autopair-skip-close-maybe
         delete-horizontal-space
         indent-for-tab-command
+        isearch-abort
+        isearch-forward-regexp
+        isearch-printing-char
         kill-region
         ns-copy-including-secondary
         org-beginning-of-line
