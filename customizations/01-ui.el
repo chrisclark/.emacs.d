@@ -37,8 +37,8 @@
 (defvar linum-format)
 (setq linum-format " %7d ")
 
-; Global Line Number mode
-(linum-mode 1)
+; linum mode whenever we're in a programming mode
+(add-hook 'prog-mode-hook 'linum-mode)
 
 ;; Highlights matching parenthesis
 (show-paren-mode 1)

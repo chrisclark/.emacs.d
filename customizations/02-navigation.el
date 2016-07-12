@@ -67,6 +67,7 @@
       "^\\(CVS\\|RCS\\|SCCS\\|\\.\\.*$\\)\\'")  ;; Show hidden files, eg. dot files
 (require 'sr-speedbar)
 (defvar speedbar-use-images)
+(setq sr-speedbar-right-side nil)
 (setq speedbar-use-images nil)
 (sr-speedbar-refresh-turn-on)
 (sr-speedbar-open)
