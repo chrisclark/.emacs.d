@@ -1,4 +1,4 @@
-;;; 04-misc-modes.el --- Customizations related to editing test
+;;; 04-modes.el --- Customizations related to editing test
 
 ;;; Commentary:
 
@@ -23,6 +23,7 @@
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'emacs-lisp-mode-hook (lambda () (flycheck-mode 1)))
 
 
 ;; Org-Mode
@@ -33,7 +34,28 @@
 (setq org-startup-indented t)
 (setq org-src-fontify-natively t)
 (setq org-hide-emphasis-markers t)
-
+(setq org-startup-with-inline-images t)
+(defun my-org-screenshot ()
+  "Take a screenshot into a time stamped unique-named file in the
+same directory as the org-buffer and insert a link to this file."
+  (interactive)
+  (org-display-inline-images)
+  (setq filename
+        (concat
+         (make-temp-name
+          (concat (file-name-nondirectory (buffer-file-name))
+                  "_imgs/"
+                  (format-time-string "%Y%m%d_%H%M%S_")) ) ".png"))
+  (unless (file-exists-p (file-name-directory filename))
+    (make-directory (file-name-directory filename)))
+  ; take screenshot
+  (if (eq system-type 'darwin)
+      (call-process "screencapture" nil nil nil "-i" filename))
+  (if (eq system-type 'gnu/linux)
+      (call-process "import" nil nil nil filename))
+  ; insert into file if correctly taken
+  (if (file-exists-p filename)
+    (insert (concat "[[file:" filename "]]"))))
 
 ;; Git
 (require 'magit)
@@ -43,7 +65,11 @@
 
 
 ;; Python
+(require 'elpy)
 (elpy-enable)
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 
 ;; javascript-mode (javascript / html / ejs)
@@ -61,13 +87,5 @@
 (add-hook 'tagedit-mode-hook (tagedit-add-experimental-features))
 
 
-;; coffeescript-mode
-(add-hook 'coffee-mode-hook 'subword-mode)
-(add-hook 'coffee-mode-hook 'highlight-indentation-current-column-mode)
-(add-hook 'coffee-mode-hook
-          (defun coffee-mode-newline-and-indent ()
-            (define-key coffee-mode-map "\C-j" 'coffee-newline-and-indent)
-            (setq coffee-cleanup-whitespace nil)))
-
-(provide '04-misc-modes)
-;;; 04-misc-modes.el ends here
+(provide '04-modes)
+;;; 04-modes.el ends here

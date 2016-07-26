@@ -1,8 +1,6 @@
 ;;; kbd --- all global keyboard remaps
-
 ;;; Commentary:
-;; mode-specific rebinds are handled in their respective mode.el files
-
+;; Mode-specific rebinds are handled in 04-modes.el.
 ;;; Code:
 
 ;; global shortcuts
@@ -19,6 +17,7 @@
 (global-set-key (kbd "C-,")     (lambda () (interactive) (other-window -1)))
 (global-set-key (kbd "C-x C-,") 'previous-buffer)
 (global-set-key (kbd "C-x C-.") 'next-buffer)
+(global-set-key (kbd "C-c s")   'sr-speedbar-toggle)
 
 ;; Killing
 (global-set-key (kbd "C-w")     'backward-kill-word)

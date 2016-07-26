@@ -30,4 +30,5 @@
         next-buffer
         org-delete-char
         paredit-semicolon
+        tagedit-insert-lt
         ))

@@ -6,6 +6,10 @@
 
 ;;; Code:
 
+;; Scroll one line at a time
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))
+      scroll-step               1)
+
 ;; The forward naming method includes part of the file's directory
 ;; name at the beginning of the buffer name when sever buffers are visiting
 ;; identically-name files (instead of the default '<2>', '<3>', etc.
@@ -13,11 +17,10 @@
 (setq uniquify-buffer-name-style 'post-forward)  ;; buffernames that are foo<1>, foo<2> -> foo|dir foo|otherdir
 
 ;;; Recentf:
-(defvar recentf-save-file)
-(setq recentf-save-file (concat user-emacs-directory ".recentf"))
 (require 'recentf)
 (recentf-mode 1)
-(setq recentf-max-menu-items 200)
+(setq recentf-save-file      (concat user-emacs-directory ".recentf")
+      recentf-max-menu-items 200)
 
 ;;; Helm:
 (require 'helm)
@@ -25,20 +28,14 @@
 (require 'helm-descbinds)
 (helm-descbinds-mode)
 
-(defvar helm-M-x-fuzzy-match)
-(defvar helm-buffers-fuzzy-matching)
-(defvar helm-recentf-fuzzy-match)
-(defvar helm-ff-search-library-in-sexp)
-(defvar helm-ff-file-name-history-use-recentf)
-(defvar helm-apropos-fuzzy-match)
-(setq helm-M-x-fuzzy-match                  t
-      helm-buffers-fuzzy-matching           t
-      helm-recentf-fuzzy-match              t
-      helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+(setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
       helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
       helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
       helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
       helm-ff-file-name-history-use-recentf t
+      helm-recentf-fuzzy-match              t
+      helm-M-x-fuzzy-match                  t
+      helm-buffers-fuzzy-matching           t
       helm-apropos-fuzzy-match              t)
 
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
@@ -49,10 +46,18 @@
 (helm-flx-mode +1)
 
 ;;; Projectile:
+(require 'projectile)
 (projectile-global-mode)
-(defvar projectile-completion-system)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
+
+;;; Company:
+(require 'company)
+(global-company-mode 1)
+(setq company-idle-delay              0.1
+      company-tooltip-limit           10
+      company-minimum-prefix-length   2
+      company-tooltip-flip-when-above t)
 
 ;;; IBuffer:
 (add-hook 'ibuffer-hook
@@ -60,19 +65,19 @@
       (ibuffer-projectile-set-filter-groups)))
 
 ;; Speedbar/sr-speedbar
-(defvar speedbar-show-unknown-files)
-(defvar speedbar-directory-unshown-regexp)
-(setq speedbar-show-unknown-files t)
-(setq speedbar-directory-unshown-regexp
-      "^\\(CVS\\|RCS\\|SCCS\\|\\.\\.*$\\)\\'")  ;; Show hidden files, eg. dot files
 (require 'sr-speedbar)
-(defvar speedbar-use-images)
-(setq sr-speedbar-right-side nil)
-(setq speedbar-use-images nil)
+(setq speedbar-show-unknown-files       t
+      speedbar-directory-unshown-regexp "^\\(CVS\\|RCS\\|SCCS\\|\\.\\.*$\\)\\'"  ;; Show hidden files, eg. dot files
+      sr-speedbar-right-side            nil
+      speedbar-use-images               nil)
+
 (sr-speedbar-refresh-turn-on)
-(sr-speedbar-open)
-(with-current-buffer sr-speedbar-buffer-name
-  (setq window-size-fixed 'width))
+
+(require 'sr-speedbar)
+(add-hook 'sr-speedbar-mode
+	  (defun size-speedbar-buffer()
+	    (with-current-buffer sr-speedbar-buffer-name
+	      (setq window-size-fixed 'width))))
 
 (provide '02-navigation)
 ;;; 02-navigation.el ends here

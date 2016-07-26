@@ -97,16 +97,15 @@
 ;; From https://sites.google.com/site/steveyegge2/my-dot-emacs-file
 (add-hook 'calendar-load-hook
  '(lambda ()
- (setq mark-holidays-in-calendar t)
- (define-key calendar-mode-map ">" 'scroll-calendar-left)
- (define-key calendar-mode-map "<" 'scroll-calendar-right)))
+    (setq mark-holidays-in-calendar t)
+    (define-key calendar-mode-map ">" 'scroll-calendar-left)
+    (define-key calendar-mode-map "<" 'scroll-calendar-right)))
 
-;; SCPaste config
-(require 'scpaste)
-(setq scpaste-http-destination "http://p.untrod.com"
-      scpaste-scp-destination "ec2-user@54.234.229.186:/var/www/html")
-(setq scpaste-user-name "Chris")
-(setq scpaste-scp-pubkey "~/.ssh/scp-paste.pem")
+(require 's3paste)
+(setq s3paste-http-destination "http://paste.untrod.com"
+      s3paste-user-address "http://www.untrod.com"
+      s3paste-user-name "Chris"
+      s3paste-bucket-name "paste.untrod.com")
 
 (provide '05-misc-functinos)
 ;;; 05-misc-functions.el ends here

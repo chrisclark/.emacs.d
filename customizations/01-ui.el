@@ -5,24 +5,18 @@
 ;;; Code:
 
 ;; Prevent the cursor from blinking
-(blink-cursor-mode 0)
+(blink-cursor-mode -1)
 
 ;; Don't use messages that you don't read
 (setq initial-scratch-message nil
       inhibit-startup-message t
       inhibit-splash-screen 1
+      inhibit-startup-echo-area-message "cclark"
       initial-major-mode 'org-mode)
 
-
 ;; Don't let Emacs hurt your ears
-(setq visible-bell t)
-(setq ring-bell-function (lambda nil (message "")))
-
-;; You need to set `inhibit-startup-echo-area-message' from the
-;; customization interface:
-;; M-x customize-variable RET inhibit-startup-echo-area-message RET
-;; then enter your username
-(setq inhibit-startup-echo-area-message "cclark")
+(setq visible-bell       t
+      ring-bell-function (lambda nil (message "")))
 
 ;; Turn off UI widgets
 (if (display-graphic-p)
@@ -34,7 +28,6 @@
 (line-number-mode t)     ; Line numbers in mode line
 (column-number-mode t)   ; Column numbers in mode line
 (size-indication-mode 1) ; Display file size in k in modeline
-(defvar linum-format)
 (setq linum-format " %7d ")
 
 ; linum mode whenever we're in a programming mode
