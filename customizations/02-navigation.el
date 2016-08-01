@@ -19,8 +19,7 @@
 ;;; Recentf:
 (require 'recentf)
 (recentf-mode 1)
-(setq recentf-save-file      (concat user-emacs-directory ".recentf")
-      recentf-max-menu-items 200)
+(setq recentf-max-menu-items 200)
 
 ;;; Helm:
 (require 'helm)
