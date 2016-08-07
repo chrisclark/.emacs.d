@@ -20,11 +20,6 @@
 ;; No need for ~ files when editing
 (setq create-lockfiles nil)
 
-;; Go straight to scratch buffer on startup
-(setq inhibit-startup-message t)
-
-(global-git-gutter-mode +1)
-
 ;;; Custom Functions
 (defun combine-line ()
   "Joins the line to the line above."
@@ -34,29 +29,19 @@
   (backward-delete-char 1)
   (insert " "))
 
-;; Slightly modified from http://stackoverflow.com/questions/17922208/emacs-convert-items-on-separate-lines-to-a-comma-separated-list
-(defun arrayify (start end &optional arg)
-  "Turns a series of strings on newlines into single quoted, comma separated one-liner."
-  (interactive "r\nP")
+;; Slightly modified from
+;; http://stackoverflow.com/questions/17922208/emacs-convert-items-on-separate-lines-to-a-comma-separated-list
+;;;###autoload
+(defun arrayify (start end quote)
+  "Turn strings on newlines into a QUOTEd, comma-separated
+one-liner."
+  (interactive "r\nMQuote: ")
   (let ((insertion
          (mapconcat 
-          (lambda (x) (format "'%s'" x))
+          (lambda (x) (format "%s%s%s" quote x quote))
           (split-string (buffer-substring start end)) ", ")))
     (delete-region start end)
-    (insert insertion)
-    (when arg (forward-char (length insertion)))))
-
-(defun arrayify-unquoted (start end &optional arg)
-  "Turns a series of strings on newlines into single quoted, comma separated one-liner."
-  (interactive "r\nP")
-  (let ((insertion
-         (mapconcat 
-          (lambda (x) (format "%s" x))
-          (split-string (buffer-substring start end)) ", ")))
-    (delete-region start end)
-    (insert insertion)
-    (when arg (forward-char (length insertion)))))
-
+    (insert insertion)))
 
 (defun insert-date (prefix)
     "Insert the current date.  With prefix-argument, use ISO format.
@@ -107,5 +92,5 @@
       s3paste-user-name "Chris"
       s3paste-bucket-name "paste.untrod.com")
 
-(provide '05-misc-functinos)
-;;; 05-misc-functions.el ends here
+(provide '05-misc)
+;;; 05-misc.el ends here

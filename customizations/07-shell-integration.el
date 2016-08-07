@@ -14,5 +14,5 @@
 (setq-default sh-basic-offset 2)
 (setq-default sh-indentation 2)
 
-(provide '08-shell-integration)
-;;; 08-shell-integration ends here
+(provide '07-shell-integration)
+;;; 07-shell-integration ends here

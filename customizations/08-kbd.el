@@ -1,6 +1,8 @@
 ;;; kbd --- all global keyboard remaps
+
 ;;; Commentary:
 ;; Mode-specific rebinds are handled in 04-modes.el.
+
 ;;; Code:
 
 ;; global shortcuts
@@ -18,6 +20,8 @@
 (global-set-key (kbd "C-x C-,") 'previous-buffer)
 (global-set-key (kbd "C-x C-.") 'next-buffer)
 (global-set-key (kbd "C-c s")   'sr-speedbar-toggle)
+(global-set-key (kbd "M-p")     'backward-paragraph)
+(global-set-key (kbd "M-n")     'forward-paragraph)
 
 ;; Killing
 (global-set-key (kbd "C-w")     'backward-kill-word)
@@ -28,6 +32,8 @@
 (global-set-key (kbd "C-x C-j") 'combine-line)
 (global-set-key (kbd "C-=")     'er/expand-region)
 (global-set-key (kbd "C-;")     'toggle-comment-on-line)
+(global-set-key (kbd "C-x C-;") 'comment-dwim)
+(global-set-key (kbd "C-c C--") 'hs-toggle-hiding)
 
 ;; Remaps -- mostly to helm
 (global-set-key (kbd "C-x r l") 'helm-filtered-bookmarks)
@@ -43,7 +49,7 @@
 (global-set-key (kbd "C-x C-h") 'mark-whole-buffer)
 (global-set-key (kbd "C-c h")   'helm-command-prefix)
 (global-set-key (kbd "C-c h o") 'helm-occur)
-(global-set-key (kbd "C-c c") 'helm-calcul-expression)
+(global-set-key (kbd "C-c c")   'helm-calcul-expression)
 
 (global-set-key (kbd "C-h a")   'helm-apropos)
 (global-set-key (kbd "C-x C-r") 'helm-recentf)
@@ -52,5 +58,5 @@
 (define-key global-map [f5]     'toggle-truncate-lines)
 (global-set-key (kbd "C-c d")   'insert-date)
 
-(provide '09-kbd)
-;;; 09-kbd.el ends here
+(provide '08-kbd)
+;;; 08-kbd.el ends here

@@ -36,26 +36,29 @@
 (setq org-hide-emphasis-markers t)
 (setq org-startup-with-inline-images t)
 (defun my-org-screenshot ()
-  "Take a screenshot into a time stamped unique-named file in the
-same directory as the org-buffer and insert a link to this file."
+  "Take a screenshot with OS X.
+Creates a time-stamped unique-named file in the same directory as
+the org-buffer and insert a link to this file."
   (interactive)
   (org-display-inline-images)
+  (defvar my-org-screenshot-filename)
   (setq filename
         (concat
          (make-temp-name
           (concat (file-name-nondirectory (buffer-file-name))
                   "_imgs/"
                   (format-time-string "%Y%m%d_%H%M%S_")) ) ".png"))
-  (unless (file-exists-p (file-name-directory filename))
-    (make-directory (file-name-directory filename)))
+  (unless (file-exists-p (file-name-directory my-org-screenshot-filename))
+    (make-directory (file-name-directory my-org-screenshot-filename)))
   ; take screenshot
   (if (eq system-type 'darwin)
-      (call-process "screencapture" nil nil nil "-i" filename))
+      (call-process "screencapture" nil nil nil "-i" my-org-screenshot-filename))
   (if (eq system-type 'gnu/linux)
-      (call-process "import" nil nil nil filename))
+      (call-process "import" nil nil nil my-org-screenshot-filename))
   ; insert into file if correctly taken
-  (if (file-exists-p filename)
-    (insert (concat "[[file:" filename "]]"))))
+  (if (file-exists-p my-org-screenshot-filename)
+    (insert (concat "[[file:" my-org-screenshot-filename "]]"))))
+
 
 ;; Git
 (require 'magit)
@@ -72,9 +75,12 @@ same directory as the org-buffer and insert a link to this file."
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 
-;; javascript-mode (javascript / html / ejs)
+;; Web stuff
+(require 'tagedit)
 (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.ejs\\'" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
+(add-hook 'css-mode-hook 'rainbow-mode)
 (add-hook 'js-mode-hook 'subword-mode)
 (add-hook 'html-mode-hook 'subword-mode)
 (defvar js-indent-level)
@@ -85,7 +91,6 @@ same directory as the org-buffer and insert a link to this file."
      (tagedit-add-paredit-like-keybindings)
      (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))))
 (add-hook 'tagedit-mode-hook (tagedit-add-experimental-features))
-
 
 (provide '04-modes)
 ;;; 04-modes.el ends here

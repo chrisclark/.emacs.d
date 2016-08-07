@@ -33,6 +33,8 @@
 ; linum mode whenever we're in a programming mode
 (add-hook 'prog-mode-hook 'linum-mode)
 
+(global-git-gutter-mode +1)
+
 ;; Highlights matching parenthesis
 (show-paren-mode 1)
 

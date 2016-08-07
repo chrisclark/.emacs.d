@@ -6,9 +6,18 @@
 
 ;;; Code:
 
-;; Scroll one line at a time
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))
-      scroll-step               1)
+;; This is a little bonkers, but it makes scrolling with the keyboard
+;; very smooth, and smoother mouse-wheel scrolling. Scrolling is not
+;; one of Emacs' strong suits.
+(setq redisplay-dont-pause            t
+      scroll-margin                   1
+      scroll-step                     1
+      scroll-conservatively           10000
+      scroll-preserve-screen-position 1
+      mouse-wheel-scroll-amount       '(1 ((shift) . 1))
+      mouse-wheel-progressive-speed   1
+      scroll-up-aggressively          0.01
+      scroll-down-aggressively        0.01)
 
 ;; The forward naming method includes part of the file's directory
 ;; name at the beginning of the buffer name when sever buffers are visiting
@@ -26,7 +35,6 @@
 (require 'helm-config)
 (require 'helm-descbinds)
 (helm-descbinds-mode)
-
 (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
       helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
       helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
@@ -36,11 +44,9 @@
       helm-M-x-fuzzy-match                  t
       helm-buffers-fuzzy-matching           t
       helm-apropos-fuzzy-match              t)
-
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
 (define-key helm-map (kbd "C-i")   'helm-execute-persistent-action) ; make TAB works in terminal
 (define-key helm-map (kbd "C-z")   'helm-select-action)             ; list actions using C-z
-
 (helm-mode 1)
 (helm-flx-mode +1)
 
@@ -64,15 +70,13 @@
       (ibuffer-projectile-set-filter-groups)))
 
 ;; Speedbar/sr-speedbar
+;; Toggling it on and off is a keyboard binding defined in kdb.el
 (require 'sr-speedbar)
 (setq speedbar-show-unknown-files       t
       speedbar-directory-unshown-regexp "^\\(CVS\\|RCS\\|SCCS\\|\\.\\.*$\\)\\'"  ;; Show hidden files, eg. dot files
       sr-speedbar-right-side            nil
       speedbar-use-images               nil)
-
 (sr-speedbar-refresh-turn-on)
-
-(require 'sr-speedbar)
 (add-hook 'sr-speedbar-mode
 	  (defun size-speedbar-buffer()
 	    (with-current-buffer sr-speedbar-buffer-name

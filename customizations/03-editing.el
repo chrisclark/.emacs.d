@@ -30,6 +30,9 @@
 ;; keep track of saved places in ~/.emacs.d/places
 (setq save-place-file (concat user-emacs-directory "places"))
 
+;; hide-show for programming modes
+(add-hook 'prog-mode-hook 'hs-minor-mode)
+
 ;; comments
 (defun toggle-comment-on-line ()
   "Comment or uncomment current line."
