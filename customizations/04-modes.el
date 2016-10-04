@@ -92,5 +92,10 @@ the org-buffer and insert a link to this file."
      (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))))
 (add-hook 'tagedit-mode-hook (tagedit-add-experimental-features))
 
+
+;; YAML/LookML
+(add-to-list 'auto-mode-alist '("\\.lookml\\'" . yaml-mode))
+
+
 (provide '04-modes)
 ;;; 04-modes.el ends here

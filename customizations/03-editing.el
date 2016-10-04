@@ -21,6 +21,8 @@
 (setq dtrt-indent-mode 1)            ; Adjust dtrt-indent-min-quality if needed
 (electric-indent-mode +1)            ; This seems to be working well...
 
+;;; Trim trailing whitespace on save.
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; When you visit a file, point goes to the last place where it
 ;; was when you previously visited the same file.
@@ -52,10 +54,14 @@
 ;; Globally turn on delete selection mode
 (delete-selection-mode 1)
 
-;; Indicate where the file ends
-(setq-default indicate-empty-lines t)
-(when (not indicate-empty-lines)
-  (toggle-indicate-empty-lines))
+;;; Company:
+(require 'company)
+(add-hook 'prog-mode-hook 'company-mode)
+;;(global-company-mode 1)
+(setq company-idle-delay              0.1
+      company-tooltip-limit           10
+      company-minimum-prefix-length   2
+      company-tooltip-flip-when-above t)
 
 (provide '03-editing)
 ;;; 03-editing.el ends here

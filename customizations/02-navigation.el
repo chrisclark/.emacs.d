@@ -56,14 +56,6 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
-;;; Company:
-(require 'company)
-(global-company-mode 1)
-(setq company-idle-delay              0.1
-      company-tooltip-limit           10
-      company-minimum-prefix-length   2
-      company-tooltip-flip-when-above t)
-
 ;;; IBuffer:
 (add-hook 'ibuffer-hook
     (lambda ()

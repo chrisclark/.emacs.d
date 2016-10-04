@@ -6,6 +6,7 @@
         autopair-insert-opening
         autopair-skip-close-maybe
         delete-horizontal-space
+        helm-mini
         indent-for-tab-command
         isearch-abort
         isearch-forward-regexp
@@ -30,5 +31,6 @@
         next-buffer
         org-delete-char
         paredit-semicolon
+        session-jump-to-last-change
         tagedit-insert-lt
         ))

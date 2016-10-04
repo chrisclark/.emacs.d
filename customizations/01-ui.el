@@ -28,7 +28,7 @@
 (line-number-mode t)     ; Line numbers in mode line
 (column-number-mode t)   ; Column numbers in mode line
 (size-indication-mode 1) ; Display file size in k in modeline
-(setq linum-format " %7d ")
+(setq linum-format " %5d \u2502 ")
 
 ; linum mode whenever we're in a programming mode
 (add-hook 'prog-mode-hook 'linum-mode)
@@ -47,6 +47,33 @@
 (defvar hl-line-face)
 (global-hl-line-mode 1)
 (set-face-background hl-line-face "gray92")
+
+;; Indicate where the file ends
+(setq-default indicate-empty-lines t)
+(when (not indicate-empty-lines)
+  (toggle-indicate-empty-lines))
+
+(custom-set-faces
+ '(fringe ((t (:background "white")))))
+
+(defvar big-fringe-mode nil)
+(define-minor-mode big-fringe-mode
+  "Minor mode to hide the mode-line in the current buffer."
+  :init-value nil
+  :global t
+  :variable big-fringe-mode
+  :group 'editing-basics
+  (if (not big-fringe-mode)
+      (progn
+        (set-fringe-style nil)
+        (setq indicate-empty-lines 1)
+        (linum-mode 1))
+    (progn (set-fringe-mode
+            (/ (- (frame-pixel-width)
+                  (* 100 (frame-char-width)))
+               3))
+           (setq indicate-empty-lines nil)
+           (linum-mode -1))))
 
 (provide '01-ui)
 ;;; 01-ui.el ends here
