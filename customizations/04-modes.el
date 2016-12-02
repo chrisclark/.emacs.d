@@ -42,7 +42,7 @@ the org-buffer and insert a link to this file."
   (interactive)
   (org-display-inline-images)
   (defvar my-org-screenshot-filename)
-  (setq filename
+  (setq my-org-screenshot-filename
         (concat
          (make-temp-name
           (concat (file-name-nondirectory (buffer-file-name))
