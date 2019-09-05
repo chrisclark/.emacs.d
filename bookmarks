@@ -3,12 +3,12 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("blog"
- (filename . "~/Dropbox/blog/")
+ (filename . "~/Dropbox (Personal)/blog")
  (front-context-string . ".DS_Store\n  drwx")
  (rear-context-string . "44 Jun 13 09:53 ")
  (position . 236))
 ("new-todos"
- (filename . "~/Dropbox/docs/new-todos.org")
+ (filename . "~/Dropbox (Personal)/docs/new-todos.org")
  (front-context-string)
  (rear-context-string . "entory forecast\n")
  (position . 38609))
@@ -33,7 +33,7 @@
  (rear-context-string)
  (position . 1))
 ("emacs"
- (filename . "~/Dropbox (Personal)/emacs/")
+ (filename . "~/Dropbox (Personal)/.emacs.d")
  (front-context-string . "docs\n  drwxr-xr-")
  (rear-context-string . "90 Jul 31 08:36 ")
  (position . 427))

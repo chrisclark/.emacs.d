@@ -26,6 +26,7 @@
 ;; Killing
 (global-set-key (kbd "C-w")     'backward-kill-word)
 (global-set-key (kbd "C-x C-k") 'kill-region)
+(global-set-key (kbd "C-x <C-backspace>") 'backward-kill-sentence)
 
 ;; Editing
 (global-set-key (kbd "C-x C-l") 'mc/edit-lines)
@@ -34,6 +35,9 @@
 (global-set-key (kbd "C-;")     'toggle-comment-on-line)
 (global-set-key (kbd "C-x C-;") 'comment-dwim)
 (global-set-key (kbd "C-c C--") 'hs-toggle-hiding)
+(global-set-key [(meta shift up)] 'move-line-up)
+(global-set-key [(meta shift down)] 'move-line-down)
+
 
 ;; Remaps -- mostly to helm
 (global-set-key (kbd "C-x r l") 'helm-filtered-bookmarks)

@@ -63,5 +63,21 @@
       company-minimum-prefix-length   2
       company-tooltip-flip-when-above t)
 
+(defun move-line-up ()
+  "Move up the current line."
+  (interactive)
+  (transpose-lines 1)
+  (forward-line -2)
+  (indent-according-to-mode))
+
+(defun move-line-down ()
+  "Move down the current line."
+  (interactive)
+  (forward-line 1)
+  (transpose-lines 1)
+  (forward-line -1)
+  (indent-according-to-mode))
+
+
 (provide '03-editing)
 ;;; 03-editing.el ends here
