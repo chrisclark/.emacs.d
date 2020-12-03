@@ -54,7 +54,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (js2-refactor xref-js2 js2-mode company-tern web-mode use-package tidy tagedit sr-speedbar sqlup-mode smex smartparens session restclient rainbow-mode rainbow-delimiters prodigy popwin paredit multiple-cursors markdown-mode magit leuven-theme json-reformat jedi idle-highlight-mode ibuffer-projectile htmlize helm-projectile helm-ls-git helm-git-grep helm-flx helm-descbinds git-gutter flycheck-cask flx-ido expand-region exec-path-from-shell elpy edit-server dtrt-indent drag-stuff clojure-mode-extra-font-locking cider centered-cursor-mode cask browse-kill-ring autopair)))
+    (polymode ess indium js2-refactor xref-js2 js2-mode company-tern web-mode use-package tidy tagedit sr-speedbar sqlup-mode smex smartparens session restclient rainbow-mode rainbow-delimiters prodigy popwin paredit multiple-cursors markdown-mode magit leuven-theme json-reformat jedi idle-highlight-mode ibuffer-projectile htmlize helm-projectile helm-ls-git helm-git-grep helm-flx helm-descbinds git-gutter flycheck-cask flx-ido expand-region exec-path-from-shell elpy edit-server dtrt-indent drag-stuff clojure-mode-extra-font-locking cider centered-cursor-mode cask browse-kill-ring autopair)))
  '(session-use-package t nil (session)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

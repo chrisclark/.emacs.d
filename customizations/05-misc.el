@@ -80,6 +80,13 @@ one-liner."
         (sort (mapcar (lambda (x) (cons (random) (concat x "\n"))) lines)
               (lambda (a b) (< (car a) (car b))))))))
 
+(defun gimme-org ()
+  "Create Org file from skeleton with current time as name."
+  (interactive)
+  (find-file (format-time-string "~/Desktop/emacs/%Y-%m-%d--%H-%M-%S.org"))
+  (insert "* Notes"))
+
+
 ;; (defvar sql-buffer)
 ;; (defun sql-setup-postgres ()
 ;;   "Set up a postgres connection and sqli mode."

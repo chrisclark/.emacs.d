@@ -40,6 +40,7 @@
 (depends-on "htmlize")
 (depends-on "ibuffer-projectile")
 (depends-on "idle-highlight-mode")
+(depends-on "indium")
 (depends-on "jedi")
 (depends-on "jedi-core")
 (depends-on "js2-mode")
