@@ -46,5 +46,5 @@
 (add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("lein-env" . enh-ruby-mode))
 
-(provide '07-mode-clojure)
-;;; 07-mode-clojure.el ends here
+(provide '06-mode-clojure)
+;;; 06-mode-clojure.el ends here

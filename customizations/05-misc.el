@@ -33,8 +33,7 @@
 ;; http://stackoverflow.com/questions/17922208/emacs-convert-items-on-separate-lines-to-a-comma-separated-list
 ;;;###autoload
 (defun arrayify (start end quote)
-  "Turn strings on newlines into a QUOTEd, comma-separated
-one-liner."
+  "Turn newlines between START and END into a QUOTE d, comma-separated one-liner."
   (interactive "r\nMQuote: ")
   (let ((insertion
          (mapconcat
@@ -44,8 +43,8 @@ one-liner."
     (insert insertion)))
 
 (defun insert-date (prefix)
-    "Insert the current date.  With prefix-argument, use ISO format.
-   With two prefix arguments, write out the day and month name."
+    "Insert the current date.  With PREFIX, use ISO format.
+With two prefix arguments, write out the day and month name."
     (interactive "P")
     (let ((format (cond
                    ((not prefix) "%Y-%m-%d")
@@ -55,7 +54,7 @@ one-liner."
       (insert (format-time-string format))))
 
 (defun my-tag-lines (b e tag)
-  "HTML: Wrap every line in the region with a tag."
+  "HTML: Wrap every line in the region, B -> E, with a TAG."
   (interactive "r\nMTag for line: ")
   (save-restriction
     (narrow-to-region b e)
@@ -80,11 +79,12 @@ one-liner."
         (sort (mapcar (lambda (x) (cons (random) (concat x "\n"))) lines)
               (lambda (a b) (< (car a) (car b))))))))
 
+;; Generate a new org file, named after current timestamps
 (defun gimme-org ()
   "Create Org file from skeleton with current time as name."
   (interactive)
-  (find-file (format-time-string "~/Desktop/emacs/%Y-%m-%d--%H-%M-%S.org"))
-  (insert "* Notes"))
+  (find-file (format-time-string "~/Dropbox (Personal)/docs/gimme/%Y-%m-%d--%H-%M-%S.org"))
+  (insert "* "))
 
 
 ;; (defvar sql-buffer)
