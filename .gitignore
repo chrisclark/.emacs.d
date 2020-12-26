@@ -27,3 +27,6 @@ flycheck_*
 projectile-bookmarks.eld
 .DS_STORE
 recentf
+recentf~
+async-bytecomp.log
+network-security.data

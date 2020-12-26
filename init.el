@@ -2,19 +2,19 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
+(require 'cask)
 (cask-initialize)
 
-(require 'edit-server)
-(setq edit-server-new-frame nil)
-(edit-server-start)
+;(require 'edit-server)
+;(setq edit-server-new-frame nil)
+;(edit-server-start)
 
 ;; Paths
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t))
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+)
 
 ;; Load any extensions
 (let ((default-directory (concat user-emacs-directory "ext")))
@@ -53,8 +53,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   (quote
-    (polymode ess indium js2-refactor xref-js2 js2-mode company-tern web-mode use-package tidy tagedit sr-speedbar sqlup-mode smex smartparens session restclient rainbow-mode rainbow-delimiters prodigy popwin paredit multiple-cursors markdown-mode magit leuven-theme json-reformat jedi idle-highlight-mode ibuffer-projectile htmlize helm-projectile helm-ls-git helm-git-grep helm-flx helm-descbinds git-gutter flycheck-cask flx-ido expand-region exec-path-from-shell elpy edit-server dtrt-indent drag-stuff clojure-mode-extra-font-locking cider centered-cursor-mode cask browse-kill-ring autopair)))
+   '(vue-mode polymode ess indium js2-refactor xref-js2 js2-mode company-tern web-mode use-package tidy tagedit sr-speedbar sqlup-mode smex smartparens session restclient rainbow-mode rainbow-delimiters prodigy popwin paredit multiple-cursors markdown-mode magit leuven-theme json-reformat jedi idle-highlight-mode ibuffer-projectile htmlize helm-projectile helm-ls-git helm-git-grep helm-flx helm-descbinds git-gutter flycheck-cask flx-ido expand-region exec-path-from-shell elpy edit-server dtrt-indent drag-stuff clojure-mode-extra-font-locking cider centered-cursor-mode cask browse-kill-ring autopair))
  '(session-use-package t nil (session)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

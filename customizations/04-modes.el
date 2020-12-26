@@ -84,6 +84,8 @@ the org-buffer and insert a link to this file."
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
 
+(require 'vue-mode)
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
 
 (require 'xref-js2)
 
@@ -138,12 +140,9 @@ See URL `https://github.com/tensor5/JSLinter'."
   :error-parser jslinter-error-parser
   :modes (js-mode js2-mode js3-mode javascript-mode))
 
-(require 'company-tern)
-
-(add-to-list 'company-backends 'company-tern)
 (add-hook 'js2-mode-hook (lambda ()
-                           (tern-mode)
-                           (company-mode)))
+                          (tern-mode)
+                          (company-mode)))
 
 ;; YAML/LookML
 (add-to-list 'auto-mode-alist '("\\.lookml\\'" . yaml-mode))

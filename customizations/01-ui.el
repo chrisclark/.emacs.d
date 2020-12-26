@@ -38,6 +38,7 @@
 ;; Highlights matching parenthesis
 (show-paren-mode 1)
 
+(add-to-list 'custom-theme-load-path "../themes/emacs-leuven-theme")
 (when (>= emacs-major-version 24)
   ;; Uncomment if we need to look haxory for some reason
   ;;(load-theme 'cyberpunk t)

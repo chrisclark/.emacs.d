@@ -1,3 +1,6 @@
 [submodule "ext/s3paste"]
 	path = ext/s3paste
 	url = git@github.com:chrisclark/s3paste
+[submodule "themes/emacs-leuven-theme"]
+	path = themes/emacs-leuven-theme
+	url = https://github.com/fniessen/emacs-leuven-theme
