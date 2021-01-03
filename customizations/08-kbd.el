@@ -37,6 +37,7 @@
 (global-set-key (kbd "C-c C--") 'hs-toggle-hiding)
 (global-set-key [(meta shift up)] 'move-line-up)
 (global-set-key [(meta shift down)] 'move-line-down)
+(global-set-key (kbd "M-\\") 'cycle-spacing)
 
 
 ;; Remaps -- mostly to helm
@@ -54,7 +55,6 @@
 (global-set-key (kbd "C-c h")   'helm-command-prefix)
 (global-set-key (kbd "C-c h o") 'helm-occur)
 (global-set-key (kbd "C-c c")   'helm-calcul-expression)
-
 (global-set-key (kbd "C-h a")   'helm-apropos)
 (global-set-key (kbd "C-x C-r") 'helm-recentf)
 
