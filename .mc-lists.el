@@ -5,6 +5,7 @@
       '(
         autopair-insert-opening
         autopair-skip-close-maybe
+        crux-move-beginning-of-line
         delete-horizontal-space
         helm-mini
         indent-for-tab-command
@@ -12,6 +13,7 @@
         isearch-forward-regexp
         isearch-printing-char
         kill-region
+        markdown-cycle
         ns-copy-including-secondary
         org-beginning-of-line
         org-end-of-line

@@ -36,7 +36,9 @@
 (setq org-hide-emphasis-markers t)
 (setq org-startup-with-inline-images t)
 (defvar org-export-with-toc nil)
-(setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"org.css\"/>")
+(setq org-html-head-include-default-style nil)
+(setq org-html-validation-link nil)
+(setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://sandyuraz.com/styles/org.min.css\"/>")
 (defun my-org-screenshot ()
   "Take a screenshot with OS X.
 Creates a time-stamped unique-named file in the same directory as
@@ -82,6 +84,7 @@ the org-buffer and insert a link to this file."
 
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
 
 (require 'vue-mode)

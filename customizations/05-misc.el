@@ -11,6 +11,9 @@
 ;; Inexplicably, this command is disabled by default. That's silly.
 (put 'downcase-region 'disabled nil)
 
+;; If a file has changed on disk, automaticaly revert the buffer
+(global-auto-revert-mode 1)
+
 ;; Changes all yes/no questions to y/n type
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -84,18 +87,15 @@ With two prefix arguments, write out the day and month name."
   "Create Org file from skeleton with current time as name."
   (interactive)
   (find-file (format-time-string "~/Dropbox (Personal)/docs/gimme/%Y-%m-%d--%H-%M-%S.org"))
-  (insert "* "))
+  (insert "#+OPTIONS: toc:nil num:nil H:4 ^:nil pri:t
+#+TITLE:
 
+")
+  (insert-date nil)
+  (forward-line -2)
+  (end-of-line)
+  (insert " "))
 
-;; (defvar sql-buffer)
-;; (defun sql-setup-postgres ()
-;;   "Set up a postgres connection and sqli mode."
-;;   (interactive)
-;;   (sql-postgres)
-;;   (sql-set-product "postgres")
-;;   (setq sql-buffer "*SQL*")
-;;   (run-hooks 'sql-set-sqli-hook)
-;;   (sql-mode))
 
 ;; Fix foolish calendar-mode scrolling.
 ;; From https://sites.google.com/site/steveyegge2/my-dot-emacs-file

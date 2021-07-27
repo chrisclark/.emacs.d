@@ -25,6 +25,9 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)  ;; buffernames that are foo<1>, foo<2> -> foo|dir foo|otherdir
 
+(use-package crux
+  :bind (("C-a" . crux-move-beginning-of-line)))
+
 ;;; Recentf:
 (require 'recentf)
 (recentf-mode 1)
@@ -49,6 +52,22 @@
 (define-key helm-map (kbd "C-z")   'helm-select-action)             ; list actions using C-z
 (helm-mode 1)
 (helm-flx-mode +1)
+
+(require 'helm-regexp)
+(eval-after-load "helm-regexp"
+  '(setq helm-source-moccur
+    (helm-make-source "Moccur" 'helm-source-multi-occur :follow 1)))
+
+;; (source: http://stackoverflow.com/q/14726601)
+(defun helm-multi-occur-all-buffers ()
+  "multi-occur in all buffers backed by files."
+  (interactive)
+  (helm-multi-occur
+   (delq nil
+     (mapcar (lambda (b)
+           (when (buffer-file-name b) (buffer-name b)))
+         (buffer-list)))))
+
 
 ;;; Projectile:
 (require 'projectile)

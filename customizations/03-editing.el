@@ -51,6 +51,19 @@
 ;; expand-region
 (require 'expand-region)
 
+;; https://stackoverflow.com/a/2478549
+(defun unfill-paragraph ()
+  "Unwrap the results of fill."
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil)))
+
+(defun unfill-region ()
+  "Unwrap the results of fill."
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-region (region-beginning) (region-end) nil)))
+
 ;; Globally turn on delete selection mode
 (delete-selection-mode 1)
 
