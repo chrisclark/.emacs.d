@@ -25,6 +25,7 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)  ;; buffernames that are foo<1>, foo<2> -> foo|dir foo|otherdir
 
+;; Moves to the first non-whitespace character on first C-a, then to actual beginning
 (use-package crux
   :bind (("C-a" . crux-move-beginning-of-line)))
 
@@ -68,7 +69,6 @@
            (when (buffer-file-name b) (buffer-name b)))
          (buffer-list)))))
 
-
 ;;; Projectile:
 (require 'projectile)
 (projectile-global-mode)
@@ -77,8 +77,8 @@
 
 ;;; IBuffer:
 (add-hook 'ibuffer-hook
-    (lambda ()
-      (ibuffer-projectile-set-filter-groups)))
+  (lambda ()
+    (ibuffer-projectile-set-filter-groups)))
 
 ;; Speedbar/sr-speedbar
 ;; Toggling it on and off is a keyboard binding defined in kdb.el
@@ -89,9 +89,9 @@
       speedbar-use-images               nil)
 (sr-speedbar-refresh-turn-on)
 (add-hook 'sr-speedbar-mode
-	  (defun size-speedbar-buffer()
-	    (with-current-buffer sr-speedbar-buffer-name
-	      (setq window-size-fixed 'width))))
+  (defun size-speedbar-buffer()
+    (with-current-buffer sr-speedbar-buffer-name
+      (setq window-size-fixed 'width))))
 
 (provide '02-navigation)
 ;;; 02-navigation.el ends here

@@ -41,7 +41,7 @@
   (interactive)
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
 
-;; fix weird os x kill errorn
+;; fix weird os X,x kill errorn
 (defun ns-get-pasteboard ()
   "Return the value of the pasteboard, or nil for unsupported formats."
   (condition-case nil

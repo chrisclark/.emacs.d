@@ -7,31 +7,30 @@
 ;; Prevent the cursor from blinking
 (blink-cursor-mode -1)
 
-;; Don't use messages that you don't read
+;; Don't put out messages that you don't read
 (setq initial-scratch-message nil
       inhibit-startup-message t
       inhibit-splash-screen 1
       inhibit-startup-echo-area-message "cclark"
       initial-major-mode 'org-mode)
 
-;; Don't let Emacs hurt your ears
-(setq visible-bell       t
+;; Turn of sounds
+(setq visible-bell t
       ring-bell-function (lambda nil (message "")))
 
 ;; Turn off UI widgets
 (if (display-graphic-p)
     (progn
-        (scroll-bar-mode -1)
-        (tool-bar-mode -1)))
+      (scroll-bar-mode -1)
+      (tool-bar-mode -1)))
 
 ;; Modeline
 (line-number-mode t)     ; Line numbers in mode line
 (column-number-mode t)   ; Column numbers in mode line
 (size-indication-mode 1) ; Display file size in k in modeline
-(setq linum-format " %5d \u2502 ")
 
-; linum mode whenever we're in a programming mode
-(add-hook 'prog-mode-hook 'linum-mode)
+; Line numbers when in a programming mode
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 (global-git-gutter-mode +1)
 
@@ -40,8 +39,6 @@
 
 (add-to-list 'custom-theme-load-path "../themes/emacs-leuven-theme")
 (when (>= emacs-major-version 24)
-  ;; Uncomment if we need to look haxory for some reason
-  ;;(load-theme 'cyberpunk t)
   (load-theme 'leuven t))
 
 ;; Highlight current line
