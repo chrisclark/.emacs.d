@@ -86,7 +86,7 @@ With two prefix arguments, write out the day and month name."
 (defun gimme-org ()
   "Create Org file from skeleton with current time as name."
   (interactive)
-  (find-file (format-time-string "~/Dropbox (Personal)/docs/gimme/%Y-%m-%d--%H-%M-%S.org"))
+  (find-file (format-time-string "~/Dropbox/docs/gimme/%Y-%m-%d--%H-%M-%S.org"))
   (insert "#+OPTIONS: toc:nil num:nil H:4 ^:nil pri:t
 #+TITLE:
 

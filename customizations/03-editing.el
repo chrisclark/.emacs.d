@@ -48,6 +48,9 @@
       (ns-get-selection-internal 'CLIPBOARD)
     (quit nil)))
 
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+
 ;; expand-region
 (require 'expand-region)
 

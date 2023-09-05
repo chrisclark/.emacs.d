@@ -9,7 +9,11 @@
 
 ;(require 'edit-server)
 ;(setq edit-server-new-frame nil)
-;(edit-server-start)
+					;(edit-server-start)
+
+;; Helm assumes mosaic support which was removed in emacs
+;; setting this var prevents a downstream helm loading error
+(setq browse-url-mosaic-program t)
 
 ;; Paths
 (when (>= emacs-major-version 24)

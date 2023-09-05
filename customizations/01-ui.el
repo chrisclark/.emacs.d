@@ -14,7 +14,7 @@
       inhibit-startup-echo-area-message "cclark"
       initial-major-mode 'org-mode)
 
-;; Turn of sounds
+;; Turn off sounds
 (setq visible-bell t
       ring-bell-function (lambda nil (message "")))
 
@@ -32,7 +32,7 @@
 ; Line numbers when in a programming mode
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
-(global-git-gutter-mode +1)
+;;(global-git-gutter-mode +1)
 
 ;; Highlights matching parenthesis
 (show-paren-mode 1)

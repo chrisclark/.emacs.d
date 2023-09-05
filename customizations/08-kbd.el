@@ -39,7 +39,6 @@
 (global-set-key [(meta shift down)] 'move-line-down)
 (global-set-key (kbd "M-\\") 'cycle-spacing)
 
-
 ;; Remaps -- mostly to helm
 (global-set-key (kbd "C-x r l") 'helm-filtered-bookmarks)
 (global-set-key (kbd "M-x")     'helm-M-x)
